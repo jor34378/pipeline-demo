@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{NOMBRE_NEGOCIO}} | Barbería Profesional</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: { 400: '#ce9f4b', 500: '#bf8832', 600: '#a36d28' },
+                        darkBar: { 900: '#09090b', 800: '#121215', 700: '#27272a' }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #f4ebd3 0%, #ce9f4b 50%, #bf8832 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-bg-gradient {
+            background: linear-gradient(135deg, #ce9f4b 0%, #bf8832 100%);
+        }
+        .bg-glass {
+            background: rgba(9, 9, 11, 0.85);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-darkBar-900 text-stone-200 font-sans antialiased selection:bg-gold-500 selection:text-black">
+
+    <!-- TOP BAR DE AUTORIDAD -->
+    <div class="bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 text-darkBar-900 text-xs sm:text-sm font-bold py-2 px-4 text-center">
+        <span>★ {{RATING}} de calificación en Google Maps con {{RESEÑAS}} opiniones verificadas</span>
+    </div>
+
+    <!-- NAVBAR COMPLETO -->
+    <header class="sticky top-0 z-50 bg-glass border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#inicio" class="font-serif text-xl sm:text-2xl font-bold tracking-widest text-white uppercase">{{NOMBRE_NEGOCIO}}</a>
+            
+            <nav class="hidden md:flex items-center gap-6 text-xs uppercase tracking-widest font-semibold text-stone-300">
+                <a href="#inicio" class="hover:text-gold-400 transition-colors">Inicio</a>
+                <a href="#servicios" class="hover:text-gold-400 transition-colors">Servicios & Precios</a>
+                <a href="#nosotros" class="hover:text-gold-400 transition-colors">Quiénes Somos</a>
+                <a href="#reservas" class="hover:text-gold-400 transition-colors">Reservar Turno</a>
+                <a href="#ubicacion" class="hover:text-gold-400 transition-colors">Ubicación</a>
+            </nav>
+
+            <a href="https://wa.me/{{TELEFONO_CLEAN}}?text=Hola!%20Quiero%20agendar%20un%20turno%20en%20{{NOMBRE_ENCODED}}" target="_blank" class="gold-bg-gradient text-darkBar-900 font-bold px-5 py-2.5 rounded-xl shadow-lg text-xs uppercase tracking-wider flex items-center gap-2 hover:brightness-110 transition">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span>WhatsApp Directo</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION CON FOTO CENTRADA Y AJUSTADA -->
+    <section id="inicio" class="relative min-h-[85vh] flex items-center justify-center overflow-hidden py-20 bg-darkBar-900">
+        <div class="absolute inset-0 z-0 opacity-30">
+            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1920&q=80" alt="Estilo Barbería" class="w-full h-full object-cover object-center">
+            <div class="absolute inset-0 bg-gradient-to-t from-darkBar-900 via-darkBar-900/80 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center space-y-6">
+            <div class="inline-flex items-center gap-2 bg-darkBar-800/90 border border-gold-400/30 rounded-full px-4 py-2 backdrop-blur-md">
+                <span class="text-amber-400 text-xs font-bold"><i class="fa-solid fa-star"></i> {{RATING}} / 5.0</span>
+                <span class="text-xs text-stone-400">| Reserva directa sin comisiones</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl font-serif font-bold text-white tracking-tight leading-tight">
+                Estilo y Precisión en <span class="gold-gradient-text">{{NOMBRE_NEGOCIO}}</span>
+            </h1>
+
+            <p class="text-stone-300 text-base sm:text-lg max-w-2xl mx-auto font-light">
+                Especialistas en cortes clásicos, degradados modernos y perfilado de barba. Ubicados en <span class="text-white font-medium">{{DIRECCION}}</span>.
+            </p>
+
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#reservas" class="w-full sm:w-auto gold-bg-gradient text-darkBar-900 font-bold px-8 py-4 rounded-xl shadow-xl flex items-center justify-center gap-3 text-sm uppercase tracking-wider hover:brightness-110 transition">
+                    <i class="fa-solid fa-calendar-check text-lg"></i>
+                    <span>Reservar Mi Turno</span>
+                </a>
+                <a href="#servicios" class="w-full sm:w-auto bg-darkBar-800/80 border border-stone-700 hover:border-gold-400/50 text-white font-medium px-8 py-4 rounded-xl transition backdrop-blur-sm flex items-center justify-center gap-2 text-sm uppercase tracking-wider">
+                    <span>Ver Servicios</span>
+                    <i class="fa-solid fa-arrow-down text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE SERVICIOS & PRECIOS -->
+    <section id="servicios" class="py-24 px-4 max-w-5xl mx-auto border-t border-white/5">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-xs font-bold uppercase tracking-widest text-gold-400 block mb-2">// Tarifas Oficiales</span>
+            <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">Servicios Principales</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-darkBar-800 rounded-2xl p-6 border border-white/5 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-serif font-bold text-white">Corte Clásico / Fade</h3>
+                        <span class="text-gold-400 font-bold text-sm">Consultar</span>
+                    </div>
+                    <p class="text-stone-400 text-xs leading-relaxed mb-6">Incluye diagnóstico de imagen, lavado con champú y acabado profesional adaptado a tu estilo.</p>
+                </div>
+                <a href="https://wa.me/{{TELEFONO_CLEAN}}?text=Hola!%20Quiero%20reservar%20Corte%20en%20{{NOMBRE_ENCODED}}" target="_blank" class="block w-full text-center py-3 rounded-xl border border-gold-400/40 text-gold-300 hover:bg-gold-400 hover:text-darkBar-900 font-bold text-xs uppercase tracking-wider transition">Reservar Corte</a>
+            </div>
+
+            <div class="bg-darkBar-800 rounded-2xl p-6 border border-white/5 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-serif font-bold text-white">Arreglo de Barba</h3>
+                        <span class="text-gold-400 font-bold text-sm">Consultar</span>
+                    </div>
+                    <p class="text-stone-400 text-xs leading-relaxed mb-6">Perfilado completo con toalla caliente, aplicación de aceites nutritivos y terminación a navaja.</p>
+                </div>
+                <a href="https://wa.me/{{TELEFONO_CLEAN}}?text=Hola!%20Quiero%20reservar%20Barba%20en%20{{NOMBRE_ENCODED}}" target="_blank" class="block w-full text-center py-3 rounded-xl border border-gold-400/40 text-gold-300 hover:bg-gold-400 hover:text-darkBar-900 font-bold text-xs uppercase tracking-wider transition">Reservar Barba</a>
+            </div>
+
+            <div class="bg-darkBar-800 rounded-2xl p-6 border border-white/5 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-serif font-bold text-white">Combo Full (Corte + Barba)</h3>
+                        <span class="text-gold-400 font-bold text-sm">Consultar</span>
+                    </div>
+                    <p class="text-stone-400 text-xs leading-relaxed mb-6">La experiencia completa de cuidado, estilismo y mantenimiento para tu cabello y barba.</p>
+                </div>
+                <a href="https://wa.me/{{TELEFONO_CLEAN}}?text=Hola!%20Quiero%20reservar%20Combo%20Full%20en%20{{NOMBRE_ENCODED}}" target="_blank" class="block w-full text-center py-3 rounded-xl border border-gold-400/40 text-gold-300 hover:bg-gold-400 hover:text-darkBar-900 font-bold text-xs uppercase tracking-wider transition">Reservar Combo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN QUIÉNES SOMOS -->
+    <section id="nosotros" class="py-24 px-4 max-w-5xl mx-auto border-t border-white/5">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-400 block">// Tradición & Estilo</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">Comprometidos con tu imagen personal</h2>
+                <p class="text-stone-300 text-sm leading-relaxed">
+                    En <strong class="text-white">{{NOMBRE_NEGOCIO}}</strong> nos enfocamos en brindar un servicio de máxima calidad, combinando técnicas tradicionales de barbería con las tendencias actuales en cortes y estilismo.
+                </p>
+                <p class="text-stone-400 text-xs leading-relaxed">
+                    Nuestro espacio está pensado para ofrecerte un momento de desconexión y buena atención, garantizando que salgas con el look exacto que buscás.
+                </p>
+            </div>
+            <div class="h-[380px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative">
+                <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=800&q=80" alt="Interior Barbería" class="w-full h-full object-cover object-center">
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN RESERVAR TURNO (CONTACTO) -->
+    <section id="reservas" class="py-20 px-4 bg-darkBar-800 border-t border-b border-white/5">
+        <div class="max-w-3xl mx-auto bg-darkBar-900 border border-white/10 rounded-3xl p-8 sm:p-12 shadow-2xl">
+            <div class="text-center mb-8">
+                <span class="text-gold-400 text-xs font-bold uppercase tracking-widest block mb-1">Sin intermediarios ni comisiones</span>
+                <h2 class="text-2xl sm:text-3xl font-serif font-bold text-white">Agenda tu Cita por WhatsApp</h2>
+                <p class="text-stone-400 text-xs mt-2">Coordiná tu horario al instante de forma directa.</p>
+            </div>
+
+            <div class="space-y-4 text-center">
+                <a href="https://wa.me/{{TELEFONO_CLEAN}}?text=Hola!%20Quiero%20reservar%20un%20turno%20en%20{{NOMBRE_ENCODED}}" target="_blank" class="inline-flex items-center justify-center gap-3 w-full gold-bg-gradient text-darkBar-900 font-bold py-4 rounded-xl text-sm uppercase tracking-wider shadow-lg hover:brightness-110 transition">
+                    <i class="fa-brands fa-whatsapp text-xl"></i> Coordinar Turno por WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- UBICACIÓN & CONTACTO -->
+    <section id="ubicacion" class="py-20 px-4 max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-400 block">// Ubicación & Horarios</span>
+                <h2 class="text-3xl font-serif font-bold text-white">Encuéntranos</h2>
+                
+                <div class="space-y-4 text-stone-300 text-sm">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-gold-400/10 text-gold-400 flex items-center justify-center text-lg flex-shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <strong class="block text-white font-serif">Dirección:</strong>
+                            {{DIRECCION}}
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-gold-400/10 text-gold-400 flex items-center justify-center text-lg flex-shrink-0">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div>
+                            <strong class="block text-white font-serif">Horarios de Atención:</strong>
+                            Lunes a Sábados: 10:00 hs a 20:30 hs.<br>
+                            <span class="text-gold-400 text-xs">Domingos cerrado.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mapa Referencia Estilizado -->
+            <div class="h-[350px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-darkBar-800 flex items-center justify-center text-center p-6">
+                <div class="space-y-3">
+                    <i class="fa-solid fa-map-location-dot text-4xl text-gold-400"></i>
+                    <h4 class="font-serif font-bold text-white text-lg">{{NOMBRE_NEGOCIO}}</h4>
+                    <p class="text-xs text-stone-400">{{DIRECCION}}</p>
+                    <span class="inline-block text-xs font-bold text-gold-400 bg-gold-400/10 px-3 py-1 rounded-full border border-gold-400/20">Google Maps Verificado</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-darkBar-900 border-t border-white/5 py-8 text-center text-xs text-stone-500">
+        <p>© 2026 {{NOMBRE_NEGOCIO}}. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

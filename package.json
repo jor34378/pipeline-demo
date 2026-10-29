@@ -1,0 +1,15 @@
+{
+  "name": "pipeline-demos",
+  "version": "1.0.0",
+  "description": "Script para generar demos masivas de landing pages",
+  "main": "generar-demos.js",
+  "scripts": {
+    "start": "node generar-demos.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^25.16.0"
+  }
+}
